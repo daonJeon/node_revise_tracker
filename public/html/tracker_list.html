@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수정 내역 목록</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+      .task-content {padding:10px 20px}
+      .task-title { margin-bottom:10px; font-size:18px; font-weight:bold; color:#333; }
+      .task-item { display:flex; justify-content: space-between; gap:30px; color:#fff; box-sizing:border-box}
+      .task-item .task { padding:10px; width:50%; border-radius:10px; background:#edf2f4; color:#222}
+
+      .ui {margin:30px 0; padding:10px; background:#fff; }
+    </style>
+</head>
+<body>
+  <div class="g-page">
+
+    <div class="g-header">
+      <div class="g-header-value page-title">Sales</div>
+      <div class="g-header-value page-title">$48,206</div>
+      <div class="g-header-value sub-title">3,008 total</div>
+      <div class="g-header-value sub-title">9 pending</div>
+    </div>
+    
+    <div class="g-table-body">
+      
+      <ul class="g-table-actions">
+        <li class="g-table-actions-col">
+          <a href="#" class="g-actions-button g-actions-button-default"><i class="fa fa-fw fa-filter right-4"></i>Filter</a>
+          <a href="#" class="g-actions-button g-actions-button-default"><i class="fa fa-fw fa-columns right-4"></i>Display</a>
+        </li>
+        <li>
+          <form class="g-forms-input">
+            <input type="text" class="g-forms-input-search-bar" placeholder="Search SKU...">
+            <i class="g-forms-input-search-bar-icon fa fa-fw fa-search"></i>
+          </form>
+        </li>
+      </ul>
+    
+      <table cellspacing="0" class="g-table-list">
+         <thead>
+            <tr>
+                <th class="g-table-list-col-edit"></th>
+                <th class="g-table-list-col-title g-table-list-col-sku required ">SKU</th>
+                <th class="g-table-list-col-title g-table-list-col-listing opt g-table-list-rwd">Listing Title</th>
+                <th class="g-table-list-col-title g-table-list-col-desc required">Description</th>
+                <th class="g-table-list-col-title g-table-list-col-money required">Price</th>
+                <th class="g-table-list-col-title g-table-list-col-money opt ">Profit</th>
+                <th class="g-table-list-col-title g-table-list-col-date required">Date</th>
+            </tr>
+         </thead>
+    
+         <tbody>
+    
+            <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4).</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+           
+           <tr>
+              <td><a href="#"><i class="fa fa-fw fa-pencil"></i></a></td>
+              <td><a href="#">2R-06HY-RI0K</a><br><div class="g-table-list-col-small-copy">Amazon US</div></td>
+              <td class="g-table-list-rwd"><a href="#">Crest 3D White Vivid Fluoride Anticavity Toothpaste Radiant Mint 0.85 oz Travel Size (Pack of 4)</a></td>
+              <td>1 sold</td>
+              <td>$3.99</td>
+              <td>$0.12</td>
+              <td><div class="g-table-list-col-small-copy">12/20/2017, 11:50PM</div></td>
+            </tr>
+    
+          </tbody>
+    
+      </table>
+      
+      <div class="g-table-list-pagination">
+        
+        <div class="g-table-list-pagination-col">
+          <span class="g-body-copy">Page</span>
+          <form><input type="text" class="g-table-list-pagination-current" placeholder="3"></form>
+          <span class="g-body-copy">of 32</span>
+        </div>
+        <div class="g-table-list-pagination-col">
+          <a href="#" class="g-actions-button g-actions-button-pager"><i class="fa fa-fw fa-caret-left right-4"></i>Prev</a>
+          <a href="#" class="g-actions-button g-actions-button-pager g-table-list-pager">Next<i class="fa fa-fw fa-caret-right left-4"></i></a>
+        </div>
+        
+      </div>
+      
+    </div>
+    </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/androidstudio.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script>
+    var app = new Vue({
+      el:'#app',
+      data(){
+              return{
+                fileList:null,
+                singleImgSrc:'',
+                selectedFile:[],//선택한 파일
+                MultiImgSrc: [],
+                filename:'',
+              }
+          },
+          methods:{
+              onFileSelected(e){//single
+                this.fileList = e.target.files[0];
+                //input file change 시 발생
+                document.querySelector("#inputFileTxt").value = this.fileList.name;
+                this.preview(this.fileList)
+              },
+              preview (file) {//single
+                if (typeof file === 'string') {
+                  this.singleImgSrc = file
+                } else {
+                  let reader = new FileReader()
+                  reader.onload = () => {
+                    this.singleImgSrc = reader.result
+                  }
+                  reader.readAsDataURL(file)
+                }
+              },
+              onDrop (e) {//Multi
+                this.inputImageFile(e.dataTransfer.files)
+              },
+              onClickFile(e) {
+                this.$refs.fileInput.click()
+              },
+              onFileChange(event) {
+                this.inputImageFile(event.target.files)
+              },
+              inputImageFile (files) {
+                if (files.length) {
+                  let file = files[0]
+                  if (!/^image\//.test(file.type)) {
+                    alert('이미지 파일만 등록이 가능합니다')
+                    return false
+                  }
+   
+                  files.forEach(f => {
+                    this.selectedFile.push(f);
+                  });
+                  this.previewMulti(file)
+                  
+                }
+              },
+              onClickUpload () {
+                this.previewMulti (this.filename)
+              },
+              previewMulti (file) {//single
+                if (typeof file === 'string') {
+                  this.MultiImgSrc.push(file)
+                } else {
+                  let reader = new FileReader()
+                  reader.onload = () => {
+                    this.MultiImgSrc.push(reader.result)
+                  }
+                  reader.readAsDataURL(file)
+                }
+              },
+              removeFile(file){
+                this.selectedFile = this.selectedFile.filter(f => {
+                  return f != file;
+                });
+              }
+          }
+    })
+   </script>
+</body>
+</html>

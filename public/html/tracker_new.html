@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수정 내역 목록</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+      .task-content {padding:10px 20px}
+      .task-title { margin-bottom:10px; font-size:18px; font-weight:bold; color:#333; }
+      .task-item { display:flex; justify-content: space-between; gap:30px; color:#fff; box-sizing:border-box}
+      .task-item .task { padding:10px; width:50%; border-radius:10px; background:#edf2f4; color:#222}
+
+      .ui {margin:30px 0; padding:10px; background:#fff; }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <div class="title">
+     <h2>Post Write</h2>      
+   </div>
+   <h3 class="sub-title">Message</h3>
+   <textarea class="textarea"></textarea>
+  
+   <h3 class="sub-title">File Upload Single</h3>
+   <div class="upload-singlebox">
+     <div class="inp-text-file">
+       <input type="text" id="inputFileTxt" readonly/>
+       <input type="file" accept="image/*" id="inputFile" @change="onFileSelected" class="hide">
+       <label for="inputFile" class="btn">Pick File</label>
+     </div>
+   
+     <div v-show="singleImgSrc" class="upload-image single">
+       <img :src="singleImgSrc">
+     </div>
+   </div>
+  
+   <h3 class="sub-title">File Upload Multiple</h3>
+   <div class="upload-box" 
+     @drop.prevent="onDrop" 
+     @dragover.prevent
+     @dragenter.prevent
+     :class="{'on':selectedFile.length > 0}">
+     <div class="upload-area">
+       <input type="file" accept="image/*" 
+        id="fileUpload" @change="onFileChange" ref="fileInput" class="hide">
+       <label for="fileUpload"><span class="txt hide">이미지 업로드</span></label>
+     </div>
+     <div class="upload-infotext" v-if="selectedFile.length == 0">
+       <p class="txt"><strong>Choose file</strong> or <strong>drag here</strong></p>
+       <p>Size Limit : 10MB</p>      
+     </div>
+     <ul class="upload-list" v-else> 
+       <li v-for="(file,index) in selectedFile" :key="(file,index)">
+         <img :src="MultiImgSrc[index]">
+         <span class="name">{{file.name}}</span>
+         <button @click="removeFile(file)" title="Remove" class="close"><span class="hide">삭제</span></button>
+       </li>
+       <li>
+         <button class="add" @click.prevent="onClickFile"><span class="hide">추가하기</span></button>
+       </li>
+     </ul>
+   </div>
+  
+     <button type="submit" class="btn submit" @click="onClickUpload">submit</button>
+  </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/androidstudio.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script>
+    var app = new Vue({
+      el:'#app',
+      data(){
+              return{
+                fileList:null,
+                singleImgSrc:'',
+                selectedFile:[],//선택한 파일
+                MultiImgSrc: [],
+                filename:'',
+              }
+          },
+          methods:{
+              onFileSelected(e){//single
+                this.fileList = e.target.files[0];
+                //input file change 시 발생
+                document.querySelector("#inputFileTxt").value = this.fileList.name;
+                this.preview(this.fileList)
+              },
+              preview (file) {//single
+                if (typeof file === 'string') {
+                  this.singleImgSrc = file
+                } else {
+                  let reader = new FileReader()
+                  reader.onload = () => {
+                    this.singleImgSrc = reader.result
+                  }
+                  reader.readAsDataURL(file)
+                }
+              },
+              onDrop (e) {//Multi
+                this.inputImageFile(e.dataTransfer.files)
+              },
+              onClickFile(e) {
+                this.$refs.fileInput.click()
+              },
+              onFileChange(event) {
+                this.inputImageFile(event.target.files)
+              },
+              inputImageFile (files) {
+                if (files.length) {
+                  let file = files[0]
+                  if (!/^image\//.test(file.type)) {
+                    alert('이미지 파일만 등록이 가능합니다')
+                    return false
+                  }
+   
+                  files.forEach(f => {
+                    this.selectedFile.push(f);
+                  });
+                  this.previewMulti(file)
+                  
+                }
+              },
+              onClickUpload () {
+                this.previewMulti (this.filename)
+              },
+              previewMulti (file) {//single
+                if (typeof file === 'string') {
+                  this.MultiImgSrc.push(file)
+                } else {
+                  let reader = new FileReader()
+                  reader.onload = () => {
+                    this.MultiImgSrc.push(reader.result)
+                  }
+                  reader.readAsDataURL(file)
+                }
+              },
+              removeFile(file){
+                this.selectedFile = this.selectedFile.filter(f => {
+                  return f != file;
+                });
+              }
+          }
+    })
+   </script>
+</body>
+</html>
